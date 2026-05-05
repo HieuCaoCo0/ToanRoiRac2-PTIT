@@ -1,0 +1,41 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    ios::sync_with_stdio(0);
+    cin.tie(nullptr);
+    freopen("DT.INP", "r", stdin);
+    freopen("DT.OUT", "w", stdout);
+    int t, n, a[105][105];
+    cin >> t >> n;
+    for (int i = 1; i <= n; i++){
+        for (int j = 1; j <= n; j++) cin >> a[i][j];
+    }
+    if (t == 1){
+        for (int i = 1; i <= n; i++){
+            int deg = 0;
+            for (int j = 1; j <= n ;j++){
+                if (a[i][j]) deg++;
+            }
+            cout << deg << " ";
+        }
+        cout << "\n";
+    }
+    else if (t == 2){
+        vector<int> Ke[105];
+        for (int i = 1; i <= n; i++){
+            for (int j = 1; j <= n; j++){
+                if (a[i][j]){
+                    Ke[i].push_back(j);
+                    // Ke[j].push_back(i);
+                }
+            }
+        }
+        cout << n << "\n";
+        for (int i = 1; i <= n; i++){
+            cout << Ke[i].size() << " ";
+            for (int v : Ke[i]) cout << v << " ";
+            cout << "\n";
+        }
+    }
+    return 0;
+}
