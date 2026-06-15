@@ -9,6 +9,7 @@ int main(){
     for (int i = 1; i <= n; i++){
         for (int j = 0; j <= n; j++){
             cin >> a[i][j];
+            d[i][j] = a[i][j];
             if (i != j && a[i][j] < 10000) Next[i][j] = j;
             else Next[i][j] = -1;
         }
